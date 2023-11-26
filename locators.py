@@ -13,4 +13,4 @@ class AuthPageLocators:
 
 class PasswordRecoveryPageLocators:
     # Локаторы страницы восстановления пароля
-    PASSWORD_RECOVERY_TEXT = '//div[contains(@class, "Auth_login")]/h2'  # текст "Восстановление пароля"
+    PASSWORD_RECOVERY_TEXT = (By.XPATH, '//h2[text()="Восстановление пароля"]')  # текст "Восстановление пароля"

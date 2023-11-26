@@ -13,7 +13,6 @@ class BasePage:
 
     # визуальное отображение элемента
     def visibility_of_element_located(self, locator, time=10):
-        self.scroll_to_element(self.presence_of_element_located(locator))
         return WebDriverWait(self.driver, time).until(
             EC.visibility_of_element_located(locator))
 

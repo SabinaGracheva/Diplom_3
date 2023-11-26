@@ -1,11 +1,10 @@
 import allure
-from pages.base_page import BasePage
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.password_recovery_page import PasswordRecoveryPage
 
 
-class TestPasswordRecoveryPage(BasePage):
+class TestPasswordRecoveryPage:
     @allure.title('Переход на страницу восстановления пароля по кнопке «Восстановить пароль»')
     def test_go_to_page_password_recovery(self, driver):
         main_page = MainPage(driver)
