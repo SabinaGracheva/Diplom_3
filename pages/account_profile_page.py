@@ -15,3 +15,7 @@ class AccountProfilePage(BasePage):
     @allure.step('Кликнуть по кнопке "Выход"')
     def click_logout_button(self):
         self.visibility_of_element_located(AccountProfilePageLocators.LOGOUT_BUTTON).click()
+
+    @allure.step('Кликнуть по кнопке "Конструктор"')
+    def click_constructor_button(self):
+        self.visibility_of_element_located(AccountProfilePageLocators.CONSTRUCTOR).click()

@@ -5,6 +5,15 @@ class MainPageLocators:
     # Локаторы главной страницы
     LOGIN_BUTTON = (By.XPATH, "//button[text()='Войти в аккаунт']")  # кнопка "Войти в аккаунт"
     PERSONAL_ACCOUNT_BUTTON = (By.XPATH, '//a[@href="/account"]')  # кнопка "Личный кабинет"
+    BUILD_A_BURGER = (By.XPATH, '//h1[text()="Соберите бургер"]')  # тест "Соберите бургер" на главной странице
+    ORDER_FEED = (By.XPATH, '//p[text()="Лента Заказов"]')  # кнопка "Лента заказов"
+    INGREDIENT = (By.CSS_SELECTOR, 'img[alt="Флюоресцентная булка R2-D3"]')  # ингредиент
+    DETAILS_INGREDIENT = (By.XPATH, '//div[contains(@class, "Modal_modal__contentBox")]')  # модальное окно "Детали ингредиента"
+    CLOSE_DETAILS_INGREDIENT = (By.XPATH, '//button[contains(@class, "Modal_modal__close_modified")]')  # закрыть модально окно "Детали ингредиента"
+    DRAG_HERE = (By.XPATH, '//ul[contains(@class, "BurgerConstructor")]')  # перетащить ингредиент в заказ
+    COUNTER_INGREDIENTS = (By.XPATH, '//p[contains(@class, "counter_counter__num")]')  # счетчик ингредиентов
+    CREATE_ORDER = (By.XPATH, '//button[text()="Оформить заказ"]')  # кнопка "Оформить заказ"
+    ORDER_IS_PROCESSED = (By.XPATH, '//p[text()="Ваш заказ начали готовить"]')
 
 
 class AuthPageLocators:
@@ -29,3 +38,9 @@ class AccountProfilePageLocators:
     # Локаторы страницы "Личный кабинет"
     LOGOUT_BUTTON = (By.XPATH, '//button[text()="Выход"]')  # кнопка выхода из Личного кабинета
     ORDERS_HISTORY = (By.XPATH, '//a[@href="/account/order-history"]')  # кнопка История заказов
+    CONSTRUCTOR = (By.XPATH, '//p[text()="Конструктор"]')  # кнопка Конструктор
+
+
+class OrderFeedPageLocators:
+    # Локаторы страницы "Лента заказов"
+    ORDER_FEED = (By.XPATH, '//p[text()="Лента Заказов"]')  # тест "Лента заказов"

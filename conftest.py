@@ -6,7 +6,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from create_new_user import register_new_user_and_return_login_password
-from data import Url, Endpoints, PersonalInformationStellarBurgers
+from data import Url, Endpoints
 from locators import AuthPageLocators, MainPageLocators
 
 
