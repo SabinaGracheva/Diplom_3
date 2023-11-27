@@ -18,3 +18,6 @@ class BasePage:
 
     def find_element(self, locator):
         return self.driver.find_element(*locator)
+
+    def get_current_url(self):
+        return self.driver.current_url
