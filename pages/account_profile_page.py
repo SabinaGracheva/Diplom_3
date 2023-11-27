@@ -8,6 +8,10 @@ class AccountProfilePage(BasePage):
     def check_logout_button(self):
         return self.visibility_of_element_located(AccountProfilePageLocators.LOGOUT_BUTTON)
 
-    @allure.step('Кликнуть на кнопку "История заказов"')
+    @allure.step('Кликнуть по кнопке "История заказов"')
     def click_button_orders_history(self):
         self.visibility_of_element_located(AccountProfilePageLocators.ORDERS_HISTORY).click()
+
+    @allure.step('Кликнуть по кнопке "Выход"')
+    def click_logout_button(self):
+        self.visibility_of_element_located(AccountProfilePageLocators.LOGOUT_BUTTON).click()
