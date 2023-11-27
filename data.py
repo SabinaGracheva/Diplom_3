@@ -4,3 +4,5 @@ class Url:
 
 class Endpoints:
     USER_REGISTRATION = '/api/auth/register'
+    USER_DELETE = '/api/auth/user'
+    USER_LOGIN = '/api/auth/login'
