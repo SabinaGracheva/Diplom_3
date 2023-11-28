@@ -1,7 +1,4 @@
-from time import sleep
-
 import allure
-
 from locators import MainPageLocators
 from pages.account_profile_page import AccountProfilePage
 from pages.main_page import MainPage
@@ -12,7 +9,7 @@ class TestBaseFunctional:
     @allure.title('Переход авторизованного пользователя в "Конструктор"')
     def test_switch_to_constructor(self, driver, login):
         main_page = MainPage(driver)
-        main_page.click_to_login_button()  # клик по кнопке Личный кабинет
+        main_page.click_to_login_button()
         account_profile = AccountProfilePage(driver)
         account_profile.click_constructor_button()
         assert main_page.check_build_a_burger_text()

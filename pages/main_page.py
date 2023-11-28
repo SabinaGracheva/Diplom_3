@@ -16,7 +16,7 @@ class MainPage(BasePage):
     def check_build_a_burger_text(self):
         return self.visibility_of_element_located(MainPageLocators.BUILD_A_BURGER)
 
-    @allure.step('Клмкнуть по кнопке "Лента заказов"')
+    @allure.step('Кликнуть по кнопке "Лента заказов"')
     def click_button_order_feed(self):
         self.visibility_of_element_located(MainPageLocators.ORDER_FEED).click()
 
@@ -47,3 +47,7 @@ class MainPage(BasePage):
     @allure.step('Проверить уведомление о готовности заказа')
     def check_order_is_processed(self):
         return self.visibility_of_element_located(MainPageLocators.ORDER_IS_PROCESSED)
+
+    @allure.step('Проверить номер заказа')
+    def check_order_number(self):
+        return self.visibility_of_element_located(MainPageLocators.ORDER_NUMBER).text
