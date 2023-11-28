@@ -16,7 +16,8 @@ class TestPasswordRecoveryPage:
         login_page = LoginPage(driver)
         login_page.click_hyperlink_password_recovery()
         password_recovery_page = PasswordRecoveryPage(driver)
-        assert password_recovery_page.check_password_recovery_text()
+        assert password_recovery_page.check_password_recovery_text(), \
+            'Не происходит переход на страницу восстановления пароля по кнопке «Восстановить пароль»'
 
     @allure.title('Ввод почты на странице восстановления пароля и клик по кнопке «Восстановить»')
     def test_click_to_button_restore(self, driver):
@@ -27,9 +28,9 @@ class TestPasswordRecoveryPage:
         password_recovery_page = PasswordRecoveryPage(driver)
         password_recovery_page.input_email()
         password_recovery_page.click_recovery_button()
-        assert password_recovery_page.check_input_new_password()
+        assert password_recovery_page.check_input_new_password(), 'Не переходит на страницу восстановдение пароля'
 
-    @allure.title('При клике по ипнпуту ввода пароля на странице восстановления пароля оно становится активным')
+    @allure.title('При клике по инпуту ввода пароля на странице восстановления пароля оно становится активным')
     def test_click_to_input(self, driver):
         main_page = MainPage(driver)
         main_page.click_to_login_button()
@@ -39,4 +40,5 @@ class TestPasswordRecoveryPage:
         password_recovery_page.input_email()
         password_recovery_page.click_recovery_button()
         password_recovery_page.click_icon_in_input_new_password()
-        assert password_recovery_page.check_input_new_password_active()
+        assert password_recovery_page.check_input_new_password_active(), \
+            'Инпут ввода пароля на странице восстановления пароля не активен'

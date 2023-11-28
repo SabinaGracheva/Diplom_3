@@ -13,7 +13,8 @@ class TestOrderFeedPage:
         main_page.click_button_order_feed()
         order_feed_page = OrderFeedPage(driver)
         order_feed_page.click_order()
-        assert order_feed_page.check_show_modal_window_with_details_order()
+        assert order_feed_page.check_show_modal_window_with_details_order(), \
+            'Не появляется модальное окно с деталями заказа'
 
     @allure.title('Заказы пользователя из раздела «История заказов» отображаются на странице «Лента заказов»')
     def test_order_details_displayed_in_orders_feed(self, driver, login):
@@ -29,7 +30,8 @@ class TestOrderFeedPage:
         order_number = account_order_history_page.check_order_number()
         account_order_history_page.click_button_order_feed()
         order_feed_page = OrderFeedPage(driver)
-        assert order_feed_page.check_user_order_number(order_number)
+        assert order_feed_page.check_user_order_number(order_number), \
+            'Заказы пользователя из раздела «История заказов» не отображаются на странице «Лента заказов»'
 
     @allure.title('При создании нового заказа счётчик "Выполнено за всё время" увеличивается')
     def test_counter_orders_of_all_time_increases(self, driver, login):
@@ -43,7 +45,8 @@ class TestOrderFeedPage:
         main_page.click_button_close_in_modal_window()
         main_page.click_button_order_feed()
         counter_2 = order_feed_page.check_counter_orders_of_all_time()
-        assert int(counter_1) < int(counter_2)
+        assert int(counter_1) < int(counter_2), \
+            'Не увеличивается счётчик "Выполнено за всё время" при создании нового заказа'
 
     @allure.title('При создании нового заказа счётчик "Выполнено за сегодня" увеличивается')
     def test_counter_orders_for_today_increases(self, driver, login):
@@ -57,7 +60,8 @@ class TestOrderFeedPage:
         main_page.click_button_close_in_modal_window()
         main_page.click_button_order_feed()
         counter_2 = order_feed_page.check_counter_orders_for_today()
-        assert int(counter_1) < int(counter_2)
+        assert int(counter_1) < int(counter_2), \
+            'Не увеличивается счётчик "Выполнено за сегодня" при создании нового заказа'
 
     @allure.title('После оформления заказа его номер появляется в разделе "В работе"')
     def test_number_order_appears_in_work(self, driver, login):
@@ -70,4 +74,4 @@ class TestOrderFeedPage:
         main_page.click_button_order_feed()
         order_feed_page = OrderFeedPage(driver)
         order_number_in_work = order_feed_page.check_order_number_in_work()
-        assert str(order_number) == order_number_in_work[1:]
+        assert str(order_number) == order_number_in_work[1:], 'Не появляется номер нового заказа в разделе "В работе"'

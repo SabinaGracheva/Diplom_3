@@ -3,6 +3,8 @@ import requests
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.firefox.service import Service as FirefoxService
+from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from create_new_user import register_new_user_and_return_login_password
@@ -18,9 +20,12 @@ def create_user():
     requests.delete(f'{Url.URL}{Endpoints.USER_DELETE}', headers={'Authorization': f'{token}'})
 
 
-@pytest.fixture
-def driver():
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+@pytest.fixture(params=['chrome', 'firefox'])
+def driver(request):
+    if request.param == 'chrome':
+        driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    if request.param == 'firefox':
+        driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
     driver.maximize_window()
     driver.get(Url.URL)
     yield driver
