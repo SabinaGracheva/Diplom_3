@@ -21,7 +21,6 @@ class TestOrderFeedPage:
         main_page.check_counter_ingredients()
         main_page.drag_and_drop_on_element(locator_1=MainPageLocators.INGREDIENT, locator_2=MainPageLocators.DRAG_HERE)
         main_page.click_button_create_order()
-        # main_page.check_order_is_processed()
         main_page.click_button_close_in_modal_window()
         main_page.click_to_login_button()
         account_file_page = AccountProfilePage(driver)
@@ -31,10 +30,6 @@ class TestOrderFeedPage:
         account_order_history_page.click_button_order_feed()
         order_feed_page = OrderFeedPage(driver)
         assert order_feed_page.check_user_order_number(order_number)
-
-
-
-
 
     @allure.title('При создании нового заказа счётчик "Выполнено за всё время" увеличивается')
     def test_counter_orders_of_all_time_increases(self, driver, login):

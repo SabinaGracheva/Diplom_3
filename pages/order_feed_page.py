@@ -47,4 +47,5 @@ class OrderFeedPage(BasePage):
 
     @allure.step('Проверить номер заказа пользователя на странице "Лента заказов"')
     def check_user_order_number(self, order_number):
-        return self.visibility_of_element_located(By.XPATH, f'//p[text()="{order_number}"]')
+        locator = (By.XPATH, f".//p[text()='{str(order_number)}']")
+        return self.visibility_of_element_located(locator)
